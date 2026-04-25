@@ -1,490 +1,516 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="dark">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Job Pulache Carreño — Desarrollador de Software</title>
- <link id="favicon" rel="icon" type="image/svg+xml">
+  <link id="favicon" rel="icon" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-follower" id="cursor-follower"></div>
-<div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- NAV -->
-<nav id="nav">
-  <div class="nav-inner">
-    <a href="#" class="logo"><span>J.P.C.</span></a>
-    <ul class="nav-links">
-      <li><a href="#about" class="nav-link">Acerca</a></li>
-      <li><a href="#services" class="nav-link">Servicios</a></li>
-      <li><a href="#projects" class="nav-link">Proyectos</a></li>
-      <li><a href="#clusters" class="nav-link">Mapa</a></li>
-      <li><a href="#stats" class="nav-link">Stats</a></li>
-      <li><a href="#research" class="nav-link">Investigación</a></li>
-      <li><a href="#contact" class="nav-link">Contacto</a></li>
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" class="logo"><span>J.P.C.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">Acerca</a></li>
+        <li><a href="#services" class="nav-link">Servicios</a></li>
+        <li><a href="#projects" class="nav-link">Proyectos</a></li>
+        <li><a href="#clusters" class="nav-link">Mapa</a></li>
+        <li><a href="#stats" class="nav-link">Stats</a></li>
+        <li><a href="#research" class="nav-link">Investigación</a></li>
+        <li><a href="#contact" class="nav-link">Contacto</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle"><span class="theme-icon">◐</span></button>
+        <a href="cv/cvJobPulache.pdf" target="_blank" class="cv-btn">CV / Resumen</a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about" class="mobile-link">Acerca de mí</a></li>
+      <li><a href="#services" class="mobile-link">Servicios</a></li>
+      <li><a href="#projects" class="mobile-link">Proyectos</a></li>
+      <li><a href="#clusters" class="mobile-link">Mapa</a></li>
+      <li><a href="#stats" class="mobile-link">Stats</a></li>
+      <li><a href="#research" class="mobile-link">Investigación</a></li>
+      <li><a href="#contact" class="mobile-link">Contacto</a></li>
     </ul>
-    <div class="nav-actions">
-      <button class="theme-toggle" id="themeToggle"><span class="theme-icon">◐</span></button>
-      <a href="cv/cvJobPulache.pdf" target="_blank" class="cv-btn">CV / Resumen</a>
-      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-    </div>
+    <a href="cv/cvJobPulache.pdf" target="_blank" class="cv-btn-mobile">CV / Resumen</a>
   </div>
-</nav>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <ul>
-    <li><a href="#about" class="mobile-link">Acerca de mí</a></li>
-    <li><a href="#services" class="mobile-link">Servicios</a></li>
-    <li><a href="#projects" class="mobile-link">Proyectos</a></li>
-    <li><a href="#clusters" class="mobile-link">Mapa</a></li>
-    <li><a href="#stats" class="mobile-link">Stats</a></li>
-    <li><a href="#research" class="mobile-link">Investigación</a></li>
-    <li><a href="#contact" class="mobile-link">Contacto</a></li>
-  </ul>
-  <a href="cv/cvJobPulache.pdf" target="_blank" class="cv-btn-mobile">CV / Resumen</a>
-</div>
-
-<!-- HERO -->
-<main class="hero" id="hero">
-  <div class="hero-bg"><canvas id="heroCanvas"></canvas></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span class="eyebrow-line"></span>
-      <span class="eyebrow-text">DESARROLLADOR Y CREADOR DIGITAL</span>
-    </div>
-    <h1 class="hero-title">
-      <span class="title-line" data-delay="0">Job</span>
-      <em class="title-line title-italic" data-delay="1">Pulache</em>
-      <span class="title-line" data-delay="2">Carreño</span>
-    </h1>
-    <p class="hero-quote">"Situado en la intersección del desarrollo de software, el diseño de sistemas y la creación de soluciones digitales eficientes y elegantes."</p>
-    <div class="hero-links">
-      <a target="_blank" href="https://github.com/pulachecarrenojob-pixel" class="hero-link">
-        <span>GitHub</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-      </a>
-      <a target="_blank" href="#" class="hero-link">
-        <span>LinkedIn</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-      </a>
-    </div>
-  </div>
-  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
-</main>
-
-<!-- TICKER -->
-<div class="ticker-wrap">
-  <div class="ticker-track">
-    <span>Desarrollo Web</span><span class="tick-dot">✦</span>
-    <span>Bases de Datos</span><span class="tick-dot">✦</span>
-    <span>Soporte Técnico</span><span class="tick-dot">✦</span>
-    <span>Python</span><span class="tick-dot">✦</span>
-    <span>JavaScript</span><span class="tick-dot">✦</span>
-    <span>SQL</span><span class="tick-dot">✦</span>
-    <span>Sistemas Linux</span><span class="tick-dot">✦</span>
-    <span>Código Limpio</span><span class="tick-dot">✦</span>
-    <span>Desarrollo Web</span><span class="tick-dot">✦</span>
-    <span>Bases de Datos</span><span class="tick-dot">✦</span>
-    <span>Soporte Técnico</span><span class="tick-dot">✦</span>
-    <span>Python</span><span class="tick-dot">✦</span>
-    <span>JavaScript</span><span class="tick-dot">✦</span>
-    <span>SQL</span><span class="tick-dot">✦</span>
-    <span>Sistemas Linux</span><span class="tick-dot">✦</span>
-    <span>Código Limpio</span><span class="tick-dot">✦</span>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-inner">
-    <div class="about-img-wrapper reveal-left">
-      <div class="about-img-frame">
-        <img src="Imgs/500_333.jpeg" alt="Job Pulache Carreño" loading="lazy">
-        <div class="img-overlay"></div>
+  <!-- HERO -->
+  <main class="hero" id="hero">
+    <div class="hero-bg"><canvas id="heroCanvas"></canvas></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">DESARROLLADOR Y CREADOR DIGITAL</span>
       </div>
-      <div class="about-badge">
-        <span class="badge-num">3+</span>
-        <span class="badge-label">Años de experiencia</span>
-      </div>
-    </div>
-    <div class="about-text reveal-right">
-      <span class="section-tag">— ACERCA DE MÍ</span>
-      <h2>El software como<br><em>solución real</em></h2>
-      <p class="lead">Soy desarrollador de software con experiencia apoyando a empresas en la creación, gestión y optimización de sistemas digitales.</p>
-      <p>Me enfoco en construir soluciones claras, funcionales y bien estructuradas, combinando lógica, diseño y eficiencia.</p>
-      <div class="skills-row">
-        <div class="skill-pill">Python</div>
-        <div class="skill-pill">JavaScript</div>
-        <div class="skill-pill">SQL</div>
-        <div class="skill-pill">HTML / CSS</div>
-        <div class="skill-pill">Git</div>
-        <div class="skill-pill">Linux</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="services-inner">
-    <header class="section-header reveal-up">
-      <span class="section-tag">— SERVICIOS</span>
-      <h2>Soluciones tecnológicas<br>y digitales</h2>
-    </header>
-    <div class="services-grid">
-      <article class="service-card reveal-up" data-delay="0">
-        <div class="service-num">01</div>
-        <div class="service-body">
-          <span class="service-tag">HABILIDAD PRINCIPAL</span>
-          <h3>Desarrollador de software</h3>
-          <p>Diseño y desarrollo de soluciones eficientes, escalables y fáciles de mantener.</p>
-        </div>
-        <div class="service-arrow">→</div>
-      </article>
-      <article class="service-card reveal-up" data-delay="1">
-        <div class="service-num">02</div>
-        <div class="service-body">
-          <span class="service-tag">RESPONSIVE</span>
-          <h3>Diseño y desarrollo web</h3>
-          <p>Sitios web modernos, responsivos y accesibles enfocados en rendimiento y estética limpia.</p>
-        </div>
-        <div class="service-arrow">→</div>
-      </article>
-      <article class="service-card reveal-up" data-delay="2">
-        <div class="service-num">03</div>
-        <div class="service-body">
-          <span class="service-tag">DATA</span>
-          <h3>Gestión de bases de datos</h3>
-          <p>Diseño, optimización y mantenimiento de bases de datos relacionales.</p>
-        </div>
-        <div class="service-arrow">→</div>
-      </article>
-      <article class="service-card reveal-up" data-delay="3">
-        <div class="service-num">04</div>
-        <div class="service-body">
-          <span class="service-tag">IT</span>
-          <h3>Soporte técnico y sistemas</h3>
-          <p>Soporte preventivo y correctivo, instalación y mantenimiento de infraestructura.</p>
-        </div>
-        <div class="service-arrow">→</div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="projects" id="projects">
-  <div class="projects-inner">
-    <header class="section-header reveal-up">
-      <span class="section-tag">— PROYECTOS</span>
-      <h2>Trabajo realizado</h2>
-      <p class="section-sub">Proyectos que combinan funcionalidad, diseño e impacto real.</p>
-    </header>
-    <div class="projects-grid">
-
-      <article class="project-card reveal-up" data-delay="0">
-        <div class="project-img-wrap">
-          <img src="Imgs/webDesign.jpg" alt="Sistema de Gestión" loading="lazy">
-          <div class="project-overlay"><a href="#" class="project-visit">Ver proyecto ↗</a></div>
-          <span class="project-num-badge">01</span>
-        </div>
-        <div class="project-info">
-          <div class="project-tags">
-            <span>Python</span><span>Flask</span><span>SQL</span>
-          </div>
-          <h3>Sistema de Gestión Empresarial</h3>
-          <p>Plataforma web completa para gestión de inventario, ventas y reportes en tiempo real.</p>
-          <div class="project-metric">
-            <span class="metric-val">40%</span>
-            <span class="metric-label">Reducción de tiempos</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="project-card reveal-up" data-delay="1">
-        <div class="project-img-wrap">
-          <img src="Imgs/DatBase.jpg" alt="Dashboard Analytics" loading="lazy">
-          <div class="project-overlay"><a href="#" class="project-visit">Ver proyecto ↗</a></div>
-          <span class="project-num-badge">02</span>
-        </div>
-        <div class="project-info">
-          <div class="project-tags">
-            <span>JavaScript</span><span>Chart.js</span><span>MySQL</span>
-          </div>
-          <h3>Dashboard de Analytics</h3>
-          <p>Panel de control interactivo con métricas clave y reportes exportables en tiempo real.</p>
-          <div class="project-metric">
-            <span class="metric-val">3x</span>
-            <span class="metric-label">Más decisiones informadas</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="project-card reveal-up" data-delay="2">
-        <div class="project-img-wrap">
-          <img src="Imgs/Programming.jpg" alt="Automatización" loading="lazy">
-          <div class="project-overlay"><a href="#" class="project-visit">Ver proyecto ↗</a></div>
-          <span class="project-num-badge">03</span>
-        </div>
-        <div class="project-info">
-          <div class="project-tags">
-            <span>Python</span><span>Selenium</span><span>APIs</span>
-          </div>
-          <h3>Sistema de Automatización</h3>
-          <p>Extracción de datos, generación de reportes y notificaciones automáticas vía email.</p>
-          <div class="project-metric">
-            <span class="metric-val">8h</span>
-            <span class="metric-label">Ahorro semanal</span>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- CLUSTERS MAP -->
-<section class="clusters-section" id="clusters">
-  <div class="clusters-inner">
-    <header class="section-header reveal-up">
-      <span class="section-tag">— CARTOGRAFÍA INTELECTUAL</span>
-      <h2>Un mapa de mis<br>grupos de trabajo</h2>
-      <p class="section-sub">Mis proyectos se ubican en la intersección de cuatro clústeres interconectados.</p>
-    </header>
-    <div class="cluster-map-wrap reveal-up" data-delay="1">
-      <canvas id="clusterCanvas"></canvas>
-      <div class="cluster-nodes" id="clusterNodes">
-        <div class="cluster-node node-center" data-id="center" style="left:50%;top:50%;">
-          <div class="node-inner center">
-            <span class="node-label">PREGUNTA CENTRAL</span>
-            <em class="node-title">Soluciones digitales eficientes</em>
-            <span class="node-sub">PROGRAMA UNIFICADOR</span>
-          </div>
-        </div>
-        <div class="cluster-node node-satellite" data-id="ia" style="left:50%;top:8%;">
-          <div class="node-inner">
-            <span class="node-label">CLÚSTER I</span>
-            <em class="node-title">Inteligencia Artificial</em>
-            <span class="node-sub">ALGORITMOS + AUTOMATIZACIÓN</span>
-          </div>
-        </div>
-        <div class="cluster-node node-satellite" data-id="web" style="left:83%;top:42%;">
-          <div class="node-inner">
-            <span class="node-label">CLÚSTER II</span>
-            <em class="node-title">Desarrollo Web</em>
-            <span class="node-sub">FRONTEND + BACKEND</span>
-          </div>
-        </div>
-        <div class="cluster-node node-satellite" data-id="data" style="left:50%;top:77%;">
-          <div class="node-inner">
-            <span class="node-label">CLÚSTER III</span>
-            <em class="node-title">Datos y Sistemas</em>
-            <span class="node-sub">SQL + OPTIMIZACIÓN</span>
-          </div>
-        </div>
-        <div class="cluster-node node-satellite" data-id="infra" style="left:17%;top:42%;">
-          <div class="node-inner">
-            <span class="node-label">CLÚSTER IV</span>
-            <em class="node-title">Infraestructura IT</em>
-            <span class="node-sub">REDES + SOPORTE</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS DASHBOARD -->
-<section class="stats-section" id="stats">
-  <div class="stats-inner">
-    <header class="section-header reveal-up">
-      <span class="section-tag">— MÉTRICAS</span>
-      <h2>Números que<br><em>hablan</em></h2>
-    </header>
-
-    <div class="stats-dashboard reveal-up" data-delay="1">
-
-      <div class="stat-card stat-globe-card">
-        <canvas id="globeCanvas"></canvas>
-        <div class="stat-globe-info">
-          <span class="stat-mini-label">PROYECTOS ENTREGADOS</span>
-          <div class="stat-big-num"><span class="count-num" data-target="10">0</span><span class="count-plus">+</span></div>
-          <div class="stat-bars" id="statBars"></div>
-        </div>
-      </div>
-
-      <div class="stat-card stat-ring-card">
-        <span class="stat-mini-label">CLIENTES SATISFECHOS</span>
-        <div class="ring-wrap">
-          <svg class="ring-svg" viewBox="0 0 120 120">
-            <circle class="ring-bg" cx="60" cy="60" r="50"/>
-            <circle class="ring-fill" cx="60" cy="60" r="50" id="ringFill"/>
+      <h1 class="hero-title">
+        <span class="title-line" data-delay="0">Job</span>
+        <em class="title-line title-italic" data-delay="1">Pulache</em>
+        <span class="title-line" data-delay="2">Carreño</span>
+      </h1>
+      <p class="hero-quote">"Situado en la intersección del desarrollo de software, el diseño de sistemas y la creación
+        de soluciones digitales eficientes y elegantes."</p>
+      <div class="hero-links">
+        <a target="_blank" href="https://github.com/pulachecarrenojob-pixel" class="hero-link">
+          <span>GitHub</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
           </svg>
-          <div class="ring-center">
-            <span class="count-num ring-num" data-target="8">0</span>
-            <span class="ring-plus">+</span>
-          </div>
-        </div>
+        </a>
+        <a target="_blank" href="#" class="hero-link">
+          <span>LinkedIn</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </a>
       </div>
-
-      <div class="stat-card stat-commit-card">
-        <span class="stat-mini-label">COMPROMISO</span>
-        <div class="commit-pct">100<span>%</span></div>
-        <div class="commit-bars">
-          <div class="commit-row">
-            <span>Puntualidad</span>
-            <div class="commit-bar-wrap"><div class="commit-bar-fill" data-w="95"></div></div>
-            <span>95%</span>
-          </div>
-          <div class="commit-row">
-            <span>Calidad</span>
-            <div class="commit-bar-wrap"><div class="commit-bar-fill" data-w="100"></div></div>
-            <span>100%</span>
-          </div>
-          <div class="commit-row">
-            <span>Soporte</span>
-            <div class="commit-bar-wrap"><div class="commit-bar-fill" data-w="90"></div></div>
-            <span>90%</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="stat-card stat-time-card">
-        <span class="stat-mini-label">TIEMPO DE RESPUESTA</span>
-        <div class="response-num">24<span>h</span></div>
-        <p class="response-desc">Tiempo máximo de respuesta garantizado</p>
-        <div class="timeline-track">
-          <div class="timeline-line"><div class="timeline-fill" id="timelineFill"></div></div>
-          <div class="timeline-dots">
-            <div class="tl-dot active"><span>Recibido</span><em>0h</em></div>
-            <div class="tl-dot"><span>En revisión</span><em>12h</em></div>
-            <div class="tl-dot"><span>Respuesta</span><em>24h</em></div>
-          </div>
-        </div>
-      </div>
-
     </div>
+    <div class="hero-scroll"><span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </main>
 
-    <div class="stats-ticker">
-      <div class="stats-ticker-track">
-        <span>✦ 100% Compromiso</span><span>✦ 24h Respuesta</span>
-        <span>✦ Código Limpio</span><span>✦ Deploy Continuo</span>
-        <span>✦ Soporte Activo</span><span>✦ Soluciones a Medida</span>
-        <span>✦ 100% Compromiso</span><span>✦ 24h Respuesta</span>
-        <span>✦ Código Limpio</span><span>✦ Deploy Continuo</span>
-        <span>✦ Soporte Activo</span><span>✦ Soluciones a Medida</span>
-      </div>
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span>Desarrollo Web</span><span class="tick-dot">✦</span>
+      <span>Bases de Datos</span><span class="tick-dot">✦</span>
+      <span>Soporte Técnico</span><span class="tick-dot">✦</span>
+      <span>Python</span><span class="tick-dot">✦</span>
+      <span>JavaScript</span><span class="tick-dot">✦</span>
+      <span>SQL</span><span class="tick-dot">✦</span>
+      <span>Sistemas Linux</span><span class="tick-dot">✦</span>
+      <span>Código Limpio</span><span class="tick-dot">✦</span>
+      <span>Desarrollo Web</span><span class="tick-dot">✦</span>
+      <span>Bases de Datos</span><span class="tick-dot">✦</span>
+      <span>Soporte Técnico</span><span class="tick-dot">✦</span>
+      <span>Python</span><span class="tick-dot">✦</span>
+      <span>JavaScript</span><span class="tick-dot">✦</span>
+      <span>SQL</span><span class="tick-dot">✦</span>
+      <span>Sistemas Linux</span><span class="tick-dot">✦</span>
+      <span>Código Limpio</span><span class="tick-dot">✦</span>
     </div>
   </div>
-</section>
 
-<!-- RESEARCH -->
-<section class="research" id="research">
-  <div class="research-inner">
-    <header class="section-header reveal-up">
-      <span class="section-tag">— INVESTIGACIÓN</span>
-      <h2>Pensamiento y<br>exploración técnica</h2>
-      <p class="section-sub">Áreas de interés, análisis técnico y exploraciones conceptuales.</p>
-    </header>
-    <div class="research-list">
-      <article class="research-item reveal-up" data-delay="0">
-        <div class="research-num"><span>I</span></div>
-        <div class="research-content">
-          <h3>Inteligencia Artificial</h3>
-          <p>Investigación centrada en algoritmos, automatización inteligente y sistemas de apoyo a la decisión. Aplicación práctica de IA para resolver problemas reales de forma eficiente.</p>
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-img-wrapper reveal-left">
+        <div class="about-img-frame">
+          <img src="Imgs/500_333.jpeg" alt="Job Pulache Carreño" loading="lazy">
+          <div class="img-overlay"></div>
         </div>
-        <div class="research-accent"></div>
-      </article>
-      <article class="research-item reveal-up" data-delay="1">
-        <div class="research-num"><span>II</span></div>
-        <div class="research-content">
-          <h3>Ingeniería de Software</h3>
-          <p>Estudio de buenas prácticas, arquitectura de sistemas, mantenibilidad y calidad del software. Enfoque en código limpio y patrones de diseño robustos.</p>
+        <div class="about-badge">
+          <span class="badge-num">3+</span>
+          <span class="badge-label">Años de experiencia</span>
         </div>
-        <div class="research-accent"></div>
-      </article>
-      <article class="research-item reveal-up" data-delay="2">
-        <div class="research-num"><span>III</span></div>
-        <div class="research-content">
-          <h3>Sistemas y Datos</h3>
-          <p>Análisis de bases de datos, optimización de consultas e integridad de la información. Conexión entre datos, procesos y toma de decisiones estratégicas.</p>
+      </div>
+      <div class="about-text reveal-right">
+        <span class="section-tag">— ACERCA DE MÍ</span>
+        <h2>El software como<br><em>solución real</em></h2>
+        <p class="lead">Soy desarrollador de software con experiencia apoyando a empresas en la creación, gestión y
+          optimización de sistemas digitales.</p>
+        <p>Me enfoco en construir soluciones claras, funcionales y bien estructuradas, combinando lógica, diseño y
+          eficiencia.</p>
+        <div class="skills-row">
+          <div class="skill-pill">Python</div>
+          <div class="skill-pill">JavaScript</div>
+          <div class="skill-pill">SQL</div>
+          <div class="skill-pill">HTML / CSS</div>
+          <div class="skill-pill">Git</div>
+          <div class="skill-pill">Linux</div>
         </div>
-        <div class="research-accent"></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <canvas class="contact-canvas" id="contactCanvas"></canvas>
-  <div class="contact-inner">
-    <div class="contact-header reveal-up">
-      <span class="section-tag">— CONTACTO</span>
-      <h2>Iniciar un<br><em>diálogo</em></h2>
-      <p>¿Tienes una idea, proyecto o simplemente quieres conversar? Estoy abierto a nuevas oportunidades.</p>
-      <div class="contact-socials">
-        <a href="https://github.com/pulachecarrenojob-pixel" target="_blank" class="social-link">
-          <span class="social-label">GitHub</span><span class="social-arrow">↗</span>
-        </a>
-        <a href="#" target="_blank" class="social-link">
-          <span class="social-label">LinkedIn</span><span class="social-arrow">↗</span>
-        </a>
-        <a href="mailto:correo@email.com" class="social-link">
-          <span class="social-label">Email directo</span><span class="social-arrow">↗</span>
-        </a>
       </div>
     </div>
-    <div class="contact-form-wrapper reveal-up" data-delay="1">
-      <form class="contact-form" id="contactForm" novalidate>
-        <div class="form-row">
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="services-inner">
+      <header class="section-header reveal-up">
+        <span class="section-tag">— SERVICIOS</span>
+        <h2>Soluciones tecnológicas<br>y digitales</h2>
+      </header>
+      <div class="services-grid">
+        <article class="service-card reveal-up" data-delay="0">
+          <div class="service-num">01</div>
+          <div class="service-body">
+            <span class="service-tag">HABILIDAD PRINCIPAL</span>
+            <h3>Desarrollador de software</h3>
+            <p>Diseño y desarrollo de soluciones eficientes, escalables y fáciles de mantener.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </article>
+        <article class="service-card reveal-up" data-delay="1">
+          <div class="service-num">02</div>
+          <div class="service-body">
+            <span class="service-tag">RESPONSIVE</span>
+            <h3>Diseño y desarrollo web</h3>
+            <p>Sitios web modernos, responsivos y accesibles enfocados en rendimiento y estética limpia.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </article>
+        <article class="service-card reveal-up" data-delay="2">
+          <div class="service-num">03</div>
+          <div class="service-body">
+            <span class="service-tag">DATA</span>
+            <h3>Gestión de bases de datos</h3>
+            <p>Diseño, optimización y mantenimiento de bases de datos relacionales.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </article>
+        <article class="service-card reveal-up" data-delay="3">
+          <div class="service-num">04</div>
+          <div class="service-body">
+            <span class="service-tag">IT</span>
+            <h3>Soporte técnico y sistemas</h3>
+            <p>Soporte preventivo y correctivo, instalación y mantenimiento de infraestructura.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="projects-inner">
+      <header class="section-header reveal-up">
+        <span class="section-tag">— PROYECTOS</span>
+        <h2>Trabajo realizado</h2>
+        <p class="section-sub">Proyectos que combinan funcionalidad, diseño e impacto real.</p>
+      </header>
+      <div class="projects-grid">
+
+        <article class="project-card reveal-up" data-delay="0">
+          <div class="project-img-wrap">
+            <img src="Imgs/webDesign.jpg" alt="Sistema de Gestión" loading="lazy">
+            <div class="project-overlay"><a href="#" class="project-visit">Ver proyecto ↗</a></div>
+            <span class="project-num-badge">01</span>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span>Python</span><span>Flask</span><span>SQL</span>
+            </div>
+            <h3>Sistema de Gestión Empresarial</h3>
+            <p>Plataforma web completa para gestión de inventario, ventas y reportes en tiempo real.</p>
+            <div class="project-metric">
+              <span class="metric-val">40%</span>
+              <span class="metric-label">Reducción de tiempos</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal-up" data-delay="1">
+          <div class="project-img-wrap">
+            <img src="Imgs/DatBase.jpg" alt="Dashboard Analytics" loading="lazy">
+            <div class="project-overlay"><a href="#" class="project-visit">Ver proyecto ↗</a></div>
+            <span class="project-num-badge">02</span>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span>JavaScript</span><span>Chart.js</span><span>MySQL</span>
+            </div>
+            <h3>Dashboard de Analytics</h3>
+            <p>Panel de control interactivo con métricas clave y reportes exportables en tiempo real.</p>
+            <div class="project-metric">
+              <span class="metric-val">3x</span>
+              <span class="metric-label">Más decisiones informadas</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal-up" data-delay="2">
+          <div class="project-img-wrap">
+            <img src="Imgs/Programming.jpg" alt="Automatización" loading="lazy">
+            <div class="project-overlay"><a href="#" class="project-visit">Ver proyecto ↗</a></div>
+            <span class="project-num-badge">03</span>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span>Python</span><span>Selenium</span><span>APIs</span>
+            </div>
+            <h3>Sistema de Automatización</h3>
+            <p>Extracción de datos, generación de reportes y notificaciones automáticas vía email.</p>
+            <div class="project-metric">
+              <span class="metric-val">8h</span>
+              <span class="metric-label">Ahorro semanal</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CLUSTERS MAP -->
+  <section class="clusters-section" id="clusters">
+    <div class="clusters-inner">
+      <header class="section-header reveal-up">
+        <span class="section-tag">— CARTOGRAFÍA INTELECTUAL</span>
+        <h2>Un mapa de mis<br>grupos de trabajo</h2>
+        <p class="section-sub">Mis proyectos se ubican en la intersección de cuatro clústeres interconectados.</p>
+      </header>
+      <div class="cluster-map-wrap reveal-up" data-delay="1">
+        <canvas id="clusterCanvas"></canvas>
+        <div class="cluster-nodes" id="clusterNodes">
+          <div class="cluster-node node-center" data-id="center" style="left:50%;top:50%;">
+            <div class="node-inner center">
+              <span class="node-label">PREGUNTA CENTRAL</span>
+              <em class="node-title">Soluciones digitales eficientes</em>
+              <span class="node-sub">PROGRAMA UNIFICADOR</span>
+            </div>
+          </div>
+          <div class="cluster-node node-satellite" data-id="ia" style="left:50%;top:8%;">
+            <div class="node-inner">
+              <span class="node-label">CLÚSTER I</span>
+              <em class="node-title">Inteligencia Artificial</em>
+              <span class="node-sub">ALGORITMOS + AUTOMATIZACIÓN</span>
+            </div>
+          </div>
+          <div class="cluster-node node-satellite" data-id="web" style="left:83%;top:42%;">
+            <div class="node-inner">
+              <span class="node-label">CLÚSTER II</span>
+              <em class="node-title">Desarrollo Web</em>
+              <span class="node-sub">FRONTEND + BACKEND</span>
+            </div>
+          </div>
+          <div class="cluster-node node-satellite" data-id="data" style="left:50%;top:77%;">
+            <div class="node-inner">
+              <span class="node-label">CLÚSTER III</span>
+              <em class="node-title">Datos y Sistemas</em>
+              <span class="node-sub">SQL + OPTIMIZACIÓN</span>
+            </div>
+          </div>
+          <div class="cluster-node node-satellite" data-id="infra" style="left:17%;top:42%;">
+            <div class="node-inner">
+              <span class="node-label">CLÚSTER IV</span>
+              <em class="node-title">Infraestructura IT</em>
+              <span class="node-sub">REDES + SOPORTE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS DASHBOARD -->
+  <section class="stats-section" id="stats">
+    <div class="stats-inner">
+      <header class="section-header reveal-up">
+        <span class="section-tag">— MÉTRICAS</span>
+        <h2>Números que<br><em>hablan</em></h2>
+      </header>
+
+      <div class="stats-dashboard reveal-up" data-delay="1">
+
+        <div class="stat-card stat-globe-card">
+          <canvas id="globeCanvas"></canvas>
+          <div class="stat-globe-info">
+            <span class="stat-mini-label">PROYECTOS ENTREGADOS</span>
+            <div class="stat-big-num"><span class="count-num" data-target="10">0</span><span class="count-plus">+</span>
+            </div>
+            <div class="stat-bars" id="statBars"></div>
+          </div>
+        </div>
+
+        <div class="stat-card stat-ring-card">
+          <span class="stat-mini-label">CLIENTES SATISFECHOS</span>
+          <div class="ring-wrap">
+            <svg class="ring-svg" viewBox="0 0 120 120">
+              <circle class="ring-bg" cx="60" cy="60" r="50" />
+              <circle class="ring-fill" cx="60" cy="60" r="50" id="ringFill" />
+            </svg>
+            <div class="ring-center">
+              <span class="count-num ring-num" data-target="8">0</span>
+              <span class="ring-plus">+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card stat-commit-card">
+          <span class="stat-mini-label">COMPROMISO</span>
+          <div class="commit-pct">100<span>%</span></div>
+          <div class="commit-bars">
+            <div class="commit-row">
+              <span>Puntualidad</span>
+              <div class="commit-bar-wrap">
+                <div class="commit-bar-fill" data-w="95"></div>
+              </div>
+              <span>95%</span>
+            </div>
+            <div class="commit-row">
+              <span>Calidad</span>
+              <div class="commit-bar-wrap">
+                <div class="commit-bar-fill" data-w="100"></div>
+              </div>
+              <span>100%</span>
+            </div>
+            <div class="commit-row">
+              <span>Soporte</span>
+              <div class="commit-bar-wrap">
+                <div class="commit-bar-fill" data-w="90"></div>
+              </div>
+              <span>90%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card stat-time-card">
+          <span class="stat-mini-label">TIEMPO DE RESPUESTA</span>
+          <div class="response-num">24<span>h</span></div>
+          <p class="response-desc">Tiempo máximo de respuesta garantizado</p>
+          <div class="timeline-track">
+            <div class="timeline-line">
+              <div class="timeline-fill" id="timelineFill"></div>
+            </div>
+            <div class="timeline-dots">
+              <div class="tl-dot active"><span>Recibido</span><em>0h</em></div>
+              <div class="tl-dot"><span>En revisión</span><em>12h</em></div>
+              <div class="tl-dot"><span>Respuesta</span><em>24h</em></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="stats-ticker">
+        <div class="stats-ticker-track">
+          <span>✦ 100% Compromiso</span><span>✦ 24h Respuesta</span>
+          <span>✦ Código Limpio</span><span>✦ Deploy Continuo</span>
+          <span>✦ Soporte Activo</span><span>✦ Soluciones a Medida</span>
+          <span>✦ 100% Compromiso</span><span>✦ 24h Respuesta</span>
+          <span>✦ Código Limpio</span><span>✦ Deploy Continuo</span>
+          <span>✦ Soporte Activo</span><span>✦ Soluciones a Medida</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="research" id="research">
+    <div class="research-inner">
+      <header class="section-header reveal-up">
+        <span class="section-tag">— INVESTIGACIÓN</span>
+        <h2>Pensamiento y<br>exploración técnica</h2>
+        <p class="section-sub">Áreas de interés, análisis técnico y exploraciones conceptuales.</p>
+      </header>
+      <div class="research-list">
+        <article class="research-item reveal-up" data-delay="0">
+          <div class="research-num"><span>I</span></div>
+          <div class="research-content">
+            <h3>Inteligencia Artificial</h3>
+            <p>Investigación centrada en algoritmos, automatización inteligente y sistemas de apoyo a la decisión.
+              Aplicación práctica de IA para resolver problemas reales de forma eficiente.</p>
+          </div>
+          <div class="research-accent"></div>
+        </article>
+        <article class="research-item reveal-up" data-delay="1">
+          <div class="research-num"><span>II</span></div>
+          <div class="research-content">
+            <h3>Ingeniería de Software</h3>
+            <p>Estudio de buenas prácticas, arquitectura de sistemas, mantenibilidad y calidad del software. Enfoque en
+              código limpio y patrones de diseño robustos.</p>
+          </div>
+          <div class="research-accent"></div>
+        </article>
+        <article class="research-item reveal-up" data-delay="2">
+          <div class="research-num"><span>III</span></div>
+          <div class="research-content">
+            <h3>Sistemas y Datos</h3>
+            <p>Análisis de bases de datos, optimización de consultas e integridad de la información. Conexión entre
+              datos, procesos y toma de decisiones estratégicas.</p>
+          </div>
+          <div class="research-accent"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <canvas class="contact-canvas" id="contactCanvas"></canvas>
+    <div class="contact-inner">
+      <div class="contact-header reveal-up">
+        <span class="section-tag">— CONTACTO</span>
+        <h2>Iniciar un<br><em>diálogo</em></h2>
+        <p>¿Tienes una idea, proyecto o simplemente quieres conversar? Estoy abierto a nuevas oportunidades.</p>
+        <div class="contact-socials">
+          <a href="https://github.com/pulachecarrenojob-pixel" target="_blank" class="social-link">
+            <span class="social-label">GitHub</span><span class="social-arrow">↗</span>
+          </a>
+          <a href="#" target="_blank" class="social-link">
+            <span class="social-label">LinkedIn</span><span class="social-arrow">↗</span>
+          </a>
+          <a href="mailto:correo@email.com" class="social-link">
+            <span class="social-label">Email directo</span><span class="social-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form-wrapper reveal-up" data-delay="1">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" id="nombre" name="nombre" required autocomplete="off">
+              <label for="nombre">Nombre</label>
+              <div class="form-line"></div>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" required autocomplete="off">
+              <label for="email">Email</label>
+              <div class="form-line"></div>
+            </div>
+          </div>
           <div class="form-group">
-            <input type="text" id="nombre" name="nombre" required autocomplete="off">
-            <label for="nombre">Nombre</label>
+            <input type="text" id="asunto" name="asunto" autocomplete="off">
+            <label for="asunto">Asunto</label>
             <div class="form-line"></div>
           </div>
           <div class="form-group">
-            <input type="email" id="email" name="email" required autocomplete="off">
-            <label for="email">Email</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+            <label for="mensaje">Mensaje</label>
             <div class="form-line"></div>
           </div>
-        </div>
-        <div class="form-group">
-          <input type="text" id="asunto" name="asunto" autocomplete="off">
-          <label for="asunto">Asunto</label>
-          <div class="form-line"></div>
-        </div>
-        <div class="form-group">
-          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-          <label for="mensaje">Mensaje</label>
-          <div class="form-line"></div>
-        </div>
-        <button type="submit" class="submit-btn magnetic" id="submitBtn">
-          <span class="btn-text">Enviar mensaje</span>
-          <span class="btn-arrow">→</span>
-        </button>
-        <div class="form-success" id="formSuccess">✓ Mensaje enviado. Gracias por escribir.</div>
-        <div class="form-error" id="formError">Por favor completa los campos requeridos.</div>
-      </form>
+          <button type="submit" class="submit-btn magnetic" id="submitBtn">
+            <span class="btn-text">Enviar mensaje</span>
+            <span class="btn-arrow">→</span>
+          </button>
+          <div class="form-success" id="formSuccess">✓ Mensaje enviado. Gracias por escribir.</div>
+          <div class="form-error" id="formError">Por favor completa los campos requeridos.</div>
+        </form>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <span class="footer-logo">J.P.C.</span>
-    <span class="footer-copy">© 2025 Job Pulache Carreño — Lima, Perú</span>
-    <a href="#hero" class="back-top"><span>↑</span></a>
-  </div>
-</footer>
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">J.P.C.</span>
+      <span class="footer-copy">© 2025 Job Pulache Carreño — Lima, Perú</span>
+      <a href="#hero" class="back-top"><span>↑</span></a>
+    </div>
+  </footer>
 
-<script src="js/js.js"></script>
+  <script src="js/js.js"></script>
 </body>
+
 </html>

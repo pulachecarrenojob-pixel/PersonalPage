@@ -698,61 +698,151 @@ window.addEventListener('load', () => {
   document.body.style.transition = 'opacity .5s ease';
   requestAnimationFrame(() => { document.body.style.opacity = '1'; });
 });
-const frames = [
-`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-<rect width="64" height="64" rx="14" fill="#020305"/>
-<text x="10" y="38" fill="#00FF9C" font-size="18" font-family="monospace">>_</text>
-</svg>`,
+ 
 
-`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-<rect width="64" height="64" rx="14" fill="#020305"/>
-<text x="10" y="38" fill="#00FF9C" font-size="18" font-family="monospace">J_</text>
-</svg>`,
 
-`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-<rect width="64" height="64" rx="14" fill="#020305"/>
-<text x="10" y="38" fill="#00FF9C" font-size="18" font-family="monospace">/J</text>
-</svg>`,
 
-`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-<rect width="64" height="64" rx="14" fill="#020305"/>
-<path d="M38 14 V34 C38 46 30 52 22 52 C16 52 12 48 11 42"
-      stroke="#00FF9C"
-      stroke-width="3"
-      fill="none"
-      stroke-linecap="round"/>
-</svg>`
-];
-let i = 0;
-let cycles = 0;
-const icon = document.getElementById("favicon");
+//icon - logo animated in page
+const canvas = document.createElement("canvas");
+canvas.width = 64;
+canvas.height = 64;
+const ctx = canvas.getContext("2d");
 
-const anim = setInterval(() => {
-  const svg = frames[i];
-  const url = "data:image/svg+xml," + encodeURIComponent(svg);
-  icon.href = url;
+const favicon = document.getElementById("favicon");
 
-  i++;
+/* =========================
+   ESTADO DEL SISTEMA
+========================= */
+let t = 0;
+let activity = 0;      // actividad usuario
+let focus = 1;         // pestaña activa
+let pulse = 0;
 
-  if (i === frames.length) {
-    i = 0;
-    cycles++;
-  }
+/* =========================
+   EVENTOS DEL USUARIO
+========================= */
+document.addEventListener("mousemove", () => activity = 1);
+document.addEventListener("keydown", () => activity = 1);
 
-  // después de unos ciclos se queda fijo en la J final
-  if (cycles === 3) {
-    clearInterval(anim);
+setInterval(() => {
+    activity *= 0.92; // decay suave (memoria)
+}, 80);
 
-    const final = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-    <rect width="64" height="64" rx="14" fill="#020305"/>
-    <path d="M38 14 V34 C38 46 30 52 22 52 C16 52 12 48 11 42"
-          stroke="#00FF9C"
-          stroke-width="3"
-          fill="none"
-          stroke-linecap="round"/>
-    </svg>`;
+document.addEventListener("visibilitychange", () => {
+    focus = document.hidden ? 0 : 1;
+});
 
-    icon.href = "data:image/svg+xml," + encodeURIComponent(final);
-  }
+/* =========================
+   FUNCIONES DE SISTEMA
+========================= */
+function noise(x) {
+    return Math.sin(x) * 0.6 + Math.sin(x * 1.7) * 0.3;
+}
 
-}, 500);
+function stateEngine() {
+    const energy = activity + focus + noise(t);
+
+    if (energy > 1.5) return "SURGE";
+    if (energy > 1.0) return "ACTIVE";
+    if (energy > 0.3) return "IDLE";
+    return "DORMANT";
+}
+
+function glitch(prob) {
+    return Math.random() < prob ? (Math.random() * 4 - 2) : 0;
+}
+
+/* =========================
+   RENDER CORE
+========================= */
+function draw() {
+    t += 0.07;
+
+    const state = stateEngine();
+
+    // reset
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, 64, 64);
+
+    /* =========================
+       PALETA DINÁMICA
+    ========================= */
+    let color = "#00ff88";
+    let glow = 8;
+
+    if (state === "SURGE") {
+        color = "#ff0033";   // peligro / singularidad
+        glow = 18;
+    } else if (state === "ACTIVE") {
+        color = "#00ffcc";
+        glow = 12;
+    } else if (state === "IDLE") {
+        color = "#00ff88";
+        glow = 9;
+    } else {
+        color = "#006644";
+        glow = 5;
+    }
+
+    /* =========================
+       LATIDO (HEARTBEAT)
+    ========================= */
+    pulse = Math.sin(t * (2 + activity * 6)) * 2;
+
+    ctx.shadowColor = color;
+    ctx.shadowBlur = glow + pulse;
+
+    ctx.fillStyle = color;
+    ctx.font = "bold 44px monospace";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+
+    /* =========================
+       GLITCH CONTROLADO
+    ========================= */
+    const g = state === "SURGE" ? 0.6 : 0.2;
+
+    const gx = glitch(g) + noise(t * 1.3);
+    const gy = glitch(g) + noise(t * 1.1);
+
+    /* =========================
+       LETRA PRINCIPAL (J)
+    ========================= */
+    ctx.fillText("J", 32 + gx, 34 + gy);
+
+    /* =========================
+       SOMBRA DIGITAL (eco)
+    ========================= */
+    if (state !== "DORMANT") {
+        ctx.fillStyle = color + "55";
+        ctx.fillText("J", 32 - gx, 34 - gy);
+    }
+
+    /* =========================
+       CORRUPCIÓN (SOLO EN SURGE)
+    ========================= */
+    if (state === "SURGE") {
+        for (let i = 0; i < 14; i++) {
+            ctx.fillStyle = color;
+            ctx.fillRect(
+                32 + Math.sin(t * i) * 22,
+                32 + Math.cos(t * i * 1.4) * 22,
+                1,
+                1
+            );
+        }
+
+        // micro blackout (fallo de sistema)
+        if (Math.random() < 0.08) {
+            ctx.fillStyle = "rgba(0,0,0,0.4)";
+            ctx.fillRect(0, 0, 64, 64);
+        }
+    }
+
+    /* =========================
+       UPDATE FAVICON
+    ========================= */
+    favicon.href = canvas.toDataURL("image/png");
+}
+
+setInterval(draw, 50);
