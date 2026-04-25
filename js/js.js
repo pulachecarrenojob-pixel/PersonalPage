@@ -698,3 +698,61 @@ window.addEventListener('load', () => {
   document.body.style.transition = 'opacity .5s ease';
   requestAnimationFrame(() => { document.body.style.opacity = '1'; });
 });
+const frames = [
+`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<rect width="64" height="64" rx="14" fill="#020305"/>
+<text x="10" y="38" fill="#00FF9C" font-size="18" font-family="monospace">>_</text>
+</svg>`,
+
+`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<rect width="64" height="64" rx="14" fill="#020305"/>
+<text x="10" y="38" fill="#00FF9C" font-size="18" font-family="monospace">J_</text>
+</svg>`,
+
+`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<rect width="64" height="64" rx="14" fill="#020305"/>
+<text x="10" y="38" fill="#00FF9C" font-size="18" font-family="monospace">/J</text>
+</svg>`,
+
+`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<rect width="64" height="64" rx="14" fill="#020305"/>
+<path d="M38 14 V34 C38 46 30 52 22 52 C16 52 12 48 11 42"
+      stroke="#00FF9C"
+      stroke-width="3"
+      fill="none"
+      stroke-linecap="round"/>
+</svg>`
+];
+let i = 0;
+let cycles = 0;
+const icon = document.getElementById("favicon");
+
+const anim = setInterval(() => {
+  const svg = frames[i];
+  const url = "data:image/svg+xml," + encodeURIComponent(svg);
+  icon.href = url;
+
+  i++;
+
+  if (i === frames.length) {
+    i = 0;
+    cycles++;
+  }
+
+  // después de unos ciclos se queda fijo en la J final
+  if (cycles === 3) {
+    clearInterval(anim);
+
+    const final = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <rect width="64" height="64" rx="14" fill="#020305"/>
+    <path d="M38 14 V34 C38 46 30 52 22 52 C16 52 12 48 11 42"
+          stroke="#00FF9C"
+          stroke-width="3"
+          fill="none"
+          stroke-linecap="round"/>
+    </svg>`;
+
+    icon.href = "data:image/svg+xml," + encodeURIComponent(final);
+  }
+
+}, 500);
