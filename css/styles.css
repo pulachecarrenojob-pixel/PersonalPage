@@ -7,7 +7,7 @@
   --bg-card: #0f0f14;
   --text: #f0ede8;
   --text-soft: #888;
-  --text-muted: #444;
+  --text-muted: #656262;
   --accent: #c9a96e;
   --accent2: #6ec9a9;
   --accent-soft: rgba(201,169,110,0.12);
@@ -127,7 +127,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2.5rem;background
 .about-img-frame img{width:100%;filter:grayscale(80%) contrast(1.05);transition:filter .6s ease,transform .6s ease}
 .about-img-wrapper:hover .about-img-frame img{filter:grayscale(20%);transform:scale(1.03)}
 .img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,transparent 50%,rgba(201,169,110,.07));pointer-events:none}
-.about-badge{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--bg-card);border:1px solid var(--border);padding:1.2rem 1.5rem;text-align:center;backdrop-filter:blur(10px)}
+.about-badge{ border-radius: 15%;position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--bg-card);border:1px solid var(--border);padding:1.2rem 1.5rem;text-align:center;backdrop-filter:blur(10px)}
 .badge-num{display:block;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--accent);line-height:1}
 .badge-label{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.15em;color:var(--text-muted);text-transform:uppercase}
 .section-tag{display:block;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.25em;color:var(--accent);text-transform:uppercase;margin-bottom:1.2rem}
